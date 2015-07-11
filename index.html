@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src="react.js"></script>
+  <script src="JSXTransformer.js"></script>
+   <script src="marked.js"></script>
+  <script src="jquery.js"></script>
+</head>
+
+<body>
+  <div id="container">
+  </div>
+  <script type="text/jsx">
+    var HelloMessage = React.createClass({
+      componentDidMount: function(){
+        var text="# Learning Hub Profile Web Wiki \n ## Controllers \n --- \n This controller class defines general controller variables. and general methods. \n **public:** \n ```c# \npublic BaseController() \npublic BaseController(IProfileAccountRepository _profile, IEnumerable<IAccountRepository> _repos) \n```";
+        marked.setOptions({
+  renderer: new marked.Renderer(),
+
+});
+
+
+         this.refs.display.getDOMNode().innerHTML = marked(text);
+      },
+
+      render: function() {
+
+        return (<div ref="display">
+
+
+
+          </div>);
+      }
+  });
+
+  var t=React.render(<HelloMessage name="John" />, document.getElementById('container'));
+  </script>
+<body>
+</html>
